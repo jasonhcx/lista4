@@ -21,13 +21,11 @@ int main(int argc, char **argv)
 	inet_aton(host, &server_addr.sin_addr);
 
 	FILE *pf = fopen(argv[1], "r"); //abre o arquivo a ser enviado recebido como parametro
-    if (pf == NULL)
-    {
+    if (pf == NULL){
     printf("Falha ao abrir o arquivo!\n");
     }
 
-	while (fread(&buffer, sizeof(char), 1, pf) != 0)
-	{
+	while (fread(&buffer, sizeof(char), 1, pf) != 0){
 		sendto(client_fd, &buffer, 1, 0, (struct sockaddr *)&server_addr,
 			   (unsigned int)sizeof(server_addr));										  
 	}

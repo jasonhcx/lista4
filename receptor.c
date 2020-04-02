@@ -20,17 +20,16 @@ int main(int argc, char** argv)
 
 	bind(server_fd, (struct sockaddr *)&server_addr, sizeof(server_addr));
 
-	FILE *pf = fopen("arquivo_recebido.txt", "wb"); //abre o arquivo a ser escrito
-    if (pf == NULL)
-    {
+	FILE *pf = fopen("recebido.txt", "wb"); //abre o arquivo a ser escrito
+    if (pf == NULL){
     printf("Falha ao abrir o arquivo!\n");
     }
 
 	do{
 		recv_bytes = recvfrom(server_fd, &buffer, 1, MSG_WAITALL,
 							  NULL, NULL); /
-
 		fwrite(&buffer, sizeof(char), 1, pf);
+
 	}while(recv_bytes != 0);
 
 	fclose(pf);
