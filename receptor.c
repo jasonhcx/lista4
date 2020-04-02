@@ -10,7 +10,7 @@ int main(int argc, char** argv)
 	char buffer;     // buffer que armazenara caracter recebido
 	struct sockaddr_in server_addr;
 
-	porta = atoi(argv[1]); //porta a ser enviada recebido como parametro
+	int porta = atoi(argv[1]); //porta a ser enviada recebido como parametro
 
 	server_fd = socket(AF_INET, SOCK_DGRAM, 0);
 
@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 
 	do{
 		recv_bytes = recvfrom(server_fd, &buffer, 1, MSG_WAITALL,
-							  NULL, NULL); /
+							  NULL, NULL); 
 		fwrite(&buffer, sizeof(char), 1, pf);
 
 	}while(recv_bytes != 0);
