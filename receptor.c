@@ -6,7 +6,7 @@
 int main(int argc, char** argv)
 {
 
-	int server_fd, port, recv_bytes;   //file descriptor do socket, porta e bytes recebidos
+	int server_fd, porta, recv_bytes;   //file descriptor do socket, porta e bytes recebidos
 	char buffer;     // buffer que armazenara caracter recebido
 	struct sockaddr_in server_addr;
 
